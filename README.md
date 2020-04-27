@@ -29,21 +29,19 @@ cd breakout-trader
 ```
 
 ```bash
-cp config.json.sample config.json
+cp config/config.json.sample config/config.json
 ```
 
-> Edit config
+> Edit config/config.json
+
+> Set paper balance in config/paper_balance.json
 
 ```bash
 sudo chmod +x docker_ubuntu_install.sh && sudo ./docker_ubuntu_install.sh
 ```
 
 ```bash
-sudo docker build -t breakout-trader .
-```
-
-```bash
-sudo docker run breakout-trader &
+sudo docker run -d --rm --mount src=`pwd`/config,target=/breakout-trader/config,type=bind skilfulll1/breakout-trader:latest
 ```
 
 ##### Say Me Thanks :)
